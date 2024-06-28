@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - EUREKA_SERVER_HOST=service-discovery
+    depends_on:
+      - service-discovery
+    networks:
+      - micro_network
+
+  # auth-server:
+  #   build:
+  #     context: ./auth-server
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8085:8085"
+  #   # environment:
+  #   #   - ENV_VAR=example
+  #   depends_on:
+  #     - service-discovery
+  #   networks:
+  #     - micro_network
+
+  # aws-s3-service:
+  #   build:
+  #     context: ./aws-s3-service
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8083:8083"
+  #   # environment:
+  #   #   - ENV_VAR=example
+  #   depends_on:
+  #     - service-discovery
+  #   networks:
+  #     - micro_network
+
+  # product-service:
+  #   build:
+  #     context: ./product-service
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8084:8084"
+  #   # environment:
+  #   #   - ENV_VAR=example
+  #   depends_on:
+  #     - service-discovery
+  #   networks:
+  #     - micro_network
+
+  service-discovery:
+    build:
+      context: ./service-discovery
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    # environment:
+    #   - ENV_VAR=example
+    networks:
+      - micro_network
+
+networks:
+  micro_network:
+    driver: bridge
