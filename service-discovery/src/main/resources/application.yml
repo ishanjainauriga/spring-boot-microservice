@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka
+
+#spring:
+#  config:
+#    import: aws-secretsmanager:/secrets/service-discovery-secret
+
+#  datasource:
+#    url: ${spring.datasource.url}
+#    username: ${spring.datasource.username}
+#    password: ${spring.datasource.password}
+
+#aws:
+accessKeyId: your-aws-access-key
+secretAccessKey: your-aws-secret-key
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - env
