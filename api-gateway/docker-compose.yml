@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    networks:
+      - micro_network
+    environment:
+      - EUREKA_SERVER_HOST=localhost
+networks:
+  micro_network:
+    driver: bridge
