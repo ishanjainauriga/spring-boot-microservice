@@ -6,6 +6,8 @@ spring:
       database: auth-db
       port: 27017
       host: localhost
+#      username: mongodb
+#      password: mongodb123
 
 server:
   port: 8085
@@ -24,3 +26,9 @@ app:
     refreshTokenValiditySeconds: 10000
     accessTokenValiditySeconds: 10000
     authorizedGrantTypes: password
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
