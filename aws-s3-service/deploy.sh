@@ -4,11 +4,11 @@
 AWS_REGION="ap-south-1"
 IMAGE_TAG="latest"
 ECR_REPO_NAME="aws-s3-service"
-CLUSTER_NAME="aws-s3-service-cluster"
+#CLUSTER_NAME="aws-s3-service-cluster"
 #SERVICE_NAME="auth-server-ecs-service"
 #TASK_DEFINITION_NAME="service-discovery-task-def"
 #CONTAINER_NAME="service-discovery-app-container"
-ACCOUNT_ID=597213519394
+ACCOUNT_ID=accountid
 PORT_NO=8083
 
 #Network Variables
@@ -31,7 +31,7 @@ docker push $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO_NAME:$IMAGE_
 
 # Create ECS Cluster if it does not exist
 #aws ecs describe-clusters --clusters $CLUSTER_NAME --region $AWS_REGION ||
-aws ecs create-cluster --cluster-name $CLUSTER_NAME --region $AWS_REGION --settings name=containerInsights,value=enabled
+#aws ecs create-cluster --cluster-name $CLUSTER_NAME --region $AWS_REGION --settings name=containerInsights,value=enabled
 
 ## Create ECS Service
 #aws ecs create-service \

@@ -21,3 +21,8 @@ security:
 # aws configuration
 accessKeyId: your-aws-access-key
 secretAccessKey: your-aws-secret-key
+
+cloud:
+  aws:
+    region:
+      static: ap-south-1
