@@ -4,11 +4,11 @@
 AWS_REGION="ap-south-1"
 ECR_REPO_NAME="api-gateway"
 IMAGE_TAG="latest"
-CLUSTER_NAME="api-gateway-ecs-cluster"
-SERVICE_NAME="api-gateway-ecs-service"
-TASK_DEFINITION_NAME="api-gateway-task-def"
-CONTAINER_NAME="api-gateway-app-container"
-ACCOUNT_ID=597213519394
+#CLUSTER_NAME="api-gateway-ecs-cluster"
+#SERVICE_NAME="api-gateway-ecs-service"
+#TASK_DEFINITION_NAME="api-gateway-task-def"
+#CONTAINER_NAME="api-gateway-app-container"
+ACCOUNT_ID=accountid
 
 #Network Variables
 
@@ -28,7 +28,7 @@ docker push $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO_NAME:$IMAGE_
 
 # Create ECS Cluster if it does not exist
 #aws ecs describe-clusters --clusters $CLUSTER_NAME --region $AWS_REGION || aws ecs create-cluster --cluster-name $CLUSTER_NAME --region $AWS_REGION
-aws ecs create-cluster --cluster-name $CLUSTER_NAME --region $AWS_REGION --settings name=containerInsights,value=enabled
+#aws ecs create-cluster --cluster-name $CLUSTER_NAME --region $AWS_REGION --settings name=containerInsights,value=enabled
 
 ## Create ECS Service
 #aws ecs create-service \
